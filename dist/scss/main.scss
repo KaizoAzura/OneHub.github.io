@@ -1,0 +1,176 @@
+@import "root";
+@import "button";
+@import "form";
+
+body {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  background-color: $white-color;
+  color: $dark-color;
+  overflow: hidden;
+}
+
+// sidebar
+.sidebar {
+  background-color: $white-color;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  z-index: 999;
+  &.expand {
+    transform: translateX(0);
+    transition: 0.3s;
+  }
+
+  .navbar-nav {
+    .nav-link {
+      border-radius: 0.25rem;
+      display: flex;
+      align-items: center;
+      &.active {
+        background-color: #dfdfdf;
+      }
+      &.navbar-brand {
+        &:hover {
+          background-color: transparent;
+        }
+
+        span {
+          font-size: 1.15rem;
+          font-weight: 500;
+        }
+      }
+      &:hover {
+        background-color: #dfdfdf;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      span {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+      i {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+// content
+.content {
+  z-index: 998;
+  // navbar
+  .navbar {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    .nav-link {
+      font-size: 1.1rem;
+      border-radius: 0.25rem;
+      &:hover {
+        background-color: #dfdfdf;
+        color: $dark-color;
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+  // main content
+  .main-content {
+    background-color: white;
+    height: 80vh;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+    // container fluid
+    /* Atur transisi untuk konten yang dimuat dan ditutup */
+    .container-fluid {
+      #searchContainer {
+        transition: all 0.5s ease;
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        &.open {
+          height: auto; /* Sesuaikan tinggi konten saat terbuka */
+          opacity: 1; /* Konten menjadi terlihat */
+        }
+      }
+    }
+
+    // locatiion link
+    .location-link {
+      text-decoration: none;
+      color: $dark-color;
+      background-color: $primary-color;
+      border-radius: 0.25rem;
+      transition: 0.3s;
+      &:hover {
+        background-color: #00e699;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+// responsive
+
+// responsive 576px
+@media (min-width: 576px) {
+  .sidebar {
+    width: 50%;
+  }
+}
+
+// responsive 992px
+
+@media (min-width: 992px) {
+  // sidebar
+  .sidebar {
+    width: 85px;
+    transform: translateX(0);
+    &.expand {
+      width: 200px;
+      .navbar-nav {
+        .nav-link {
+          span {
+            opacity: 1;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+    // navbar nav
+    .navbar-nav {
+      .nav-link {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+
+        span {
+          opacity: 0;
+          transition: 0.3s;
+        }
+        i {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  // content
+  .content {
+    transition: 0.3s;
+    margin-left: 85px;
+    &.shrink {
+      transition: 0.3s;
+      margin-left: 200px;
+    }
+  }
+}

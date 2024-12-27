@@ -1,0 +1,28 @@
+@import "root";
+@import "button";
+
+form {
+  border: 1px solid $primary-color;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  .btn {
+    border-right: 1px solid #dfdfdf;
+    border-radius: 0;
+    &:focus {
+      border: 0;
+    }
+    &:hover {
+      border-right: 1px solid #dfdfdf;
+    }
+  }
+  .form-control {
+    border: 0;
+    background-color: transparent;
+    &:focus {
+      box-shadow: none;
+      border: 0;
+      outline: none;
+      background-color: transparent;
+    }
+  }
+}

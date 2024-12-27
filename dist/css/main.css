@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  transition: 0.3s;
+}
+
+* {
+  transition: 0.3s;
+}
+
+form {
+  border: 1px solid #23c48e;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+form .btn {
+  border-right: 1px solid #dfdfdf;
+  border-radius: 0;
+}
+form .btn:focus {
+  border: 0;
+}
+form .btn:hover {
+  border-right: 1px solid #dfdfdf;
+}
+form .form-control {
+  border: 0;
+  background-color: transparent;
+}
+form .form-control:focus {
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+  background-color: whitesmoke;
+  color: #333333;
+  overflow: hidden;
+}
+
+.sidebar {
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  z-index: 999;
+}
+.sidebar.expand {
+  transform: translateX(0);
+  transition: 0.3s;
+}
+.sidebar .navbar-nav .nav-link {
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+.sidebar .navbar-nav .nav-link.active {
+  background-color: #dfdfdf;
+}
+.sidebar .navbar-nav .nav-link.navbar-brand:hover {
+  background-color: transparent;
+}
+.sidebar .navbar-nav .nav-link.navbar-brand span {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.sidebar .navbar-nav .nav-link:hover {
+  background-color: #dfdfdf;
+}
+.sidebar .navbar-nav .nav-link img {
+  width: 40px;
+  height: 40px;
+}
+.sidebar .navbar-nav .nav-link span {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.sidebar .navbar-nav .nav-link i {
+  font-size: 40px;
+}
+
+.content {
+  z-index: 998;
+}
+.content .navbar {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+.content .navbar .nav-link {
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+}
+.content .navbar .nav-link:hover {
+  background-color: #dfdfdf;
+  color: #333333;
+}
+.content .navbar .nav-link:active {
+  transform: scale(0.95);
+}
+.content .main-content {
+  background-color: white;
+  height: 80vh;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+  /* Atur transisi untuk konten yang dimuat dan ditutup */
+}
+.content .main-content .container-fluid #searchContainer {
+  transition: all 0.5s ease;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+.content .main-content .container-fluid #searchContainer.open {
+  height: auto; /* Sesuaikan tinggi konten saat terbuka */
+  opacity: 1; /* Konten menjadi terlihat */
+}
+.content .main-content .location-link {
+  text-decoration: none;
+  color: #333333;
+  background-color: #23c48e;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+}
+.content .main-content .location-link:hover {
+  background-color: #00e699;
+  transition: 0.3s;
+}
+
+@media (min-width: 576px) {
+  .sidebar {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .sidebar {
+    width: 85px;
+    transform: translateX(0);
+  }
+  .sidebar.expand {
+    width: 200px;
+  }
+  .sidebar.expand .navbar-nav .nav-link span {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .sidebar .navbar-nav .nav-link img {
+    width: 40px;
+    height: 40px;
+  }
+  .sidebar .navbar-nav .nav-link span {
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .sidebar .navbar-nav .nav-link i {
+    font-size: 30px;
+  }
+  .content {
+    transition: 0.3s;
+    margin-left: 85px;
+  }
+  .content.shrink {
+    transition: 0.3s;
+    margin-left: 200px;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+form {
+  border: 1px solid #23c48e;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+form .btn {
+  border-right: 1px solid #dfdfdf;
+  border-radius: 0;
+}
+form .btn:focus {
+  border: 0;
+}
+form .btn:hover {
+  border-right: 1px solid #dfdfdf;
+}
+form .form-control {
+  border: 0;
+  background-color: transparent;
+}
+form .form-control:focus {
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+}/*# sourceMappingURL=form.css.map */
