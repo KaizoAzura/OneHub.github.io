@@ -1,6 +1,7 @@
 @import "root";
 @import "button";
 @import "form";
+@import "card";
 
 body {
   margin: 0;
@@ -18,6 +19,7 @@ body {
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
   transform: translateX(-100%);
   transition: 0.3s;
   z-index: 999;
@@ -88,19 +90,13 @@ body {
     height: 80vh;
     overflow-y: auto;
     border-radius: 0.5rem;
-    // container fluid
-    /* Atur transisi untuk konten yang dimuat dan ditutup */
-    .container-fluid {
-      #searchContainer {
-        transition: all 0.5s ease;
-        overflow: hidden;
-        height: 0;
-        opacity: 0;
-        &.open {
-          height: auto; /* Sesuaikan tinggi konten saat terbuka */
-          opacity: 1; /* Konten menjadi terlihat */
-        }
-      }
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border-radius: 0.5rem;
     }
 
     // locatiion link

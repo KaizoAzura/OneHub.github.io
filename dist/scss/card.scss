@@ -1,0 +1,39 @@
+@import "root";
+
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card {
+  text-decoration: none;
+  box-shadow: 0 0 20px 2px #ebebeb;
+  border: 0;
+  scroll-snap-align: center;
+  &:hover {
+    box-shadow: 0 0 20px 2px #d2d2d2;
+  }
+  .card-footer {
+    border: 0;
+    background-color: $primary-color;
+  }
+}
+
+.folder-card {
+  background-color: #dfdfdf;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: $dark-color;
+  h6 {
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    width: 200px;
+    overflow: hidden;
+  }
+}

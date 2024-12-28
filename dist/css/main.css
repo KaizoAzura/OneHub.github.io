@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   transition: 0.3s;
 }
@@ -34,6 +35,48 @@ form .form-control:focus {
   background-color: transparent;
 }
 
+* {
+  transition: 0.3s;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.card-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  text-decoration: none;
+  box-shadow: 0 0 20px 2px #ebebeb;
+  border: 0;
+  scroll-snap-align: center;
+}
+.card:hover {
+  box-shadow: 0 0 20px 2px #d2d2d2;
+}
+.card .card-footer {
+  border: 0;
+  background-color: #23c48e;
+}
+
+.folder-card {
+  background-color: #dfdfdf;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #333333;
+}
+.folder-card h6 {
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   padding: 1rem;
@@ -49,6 +92,7 @@ body {
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
   transform: translateX(-100%);
   transition: 0.3s;
   z-index: 999;
@@ -111,17 +155,14 @@ body {
   height: 80vh;
   overflow-y: auto;
   border-radius: 0.5rem;
-  /* Atur transisi untuk konten yang dimuat dan ditutup */
 }
-.content .main-content .container-fluid #searchContainer {
-  transition: all 0.5s ease;
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
+.content .main-content::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
 }
-.content .main-content .container-fluid #searchContainer.open {
-  height: auto; /* Sesuaikan tinggi konten saat terbuka */
-  opacity: 1; /* Konten menjadi terlihat */
+.content .main-content::-webkit-scrollbar-thumb {
+  background-color: #23c48e;
+  border-radius: 0.5rem;
 }
 .content .main-content .location-link {
   text-decoration: none;
