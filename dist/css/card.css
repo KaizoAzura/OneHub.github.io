@@ -25,18 +25,4 @@
 .card .card-footer {
   border: 0;
   background-color: #23c48e;
-}
-
-.folder-card {
-  background-color: #dfdfdf;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: #333333;
-}
-.folder-card h6 {
-  text-overflow: ellipsis;
-  display: block;
-  white-space: nowrap;
-  width: 200px;
-  overflow: hidden;
 }/*# sourceMappingURL=card.css.map */

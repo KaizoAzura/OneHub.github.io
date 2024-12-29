@@ -7,4 +7,13 @@ $dark-color: #333333;
 
 * {
   transition: 0.3s;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
 }

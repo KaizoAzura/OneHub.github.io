@@ -23,17 +23,3 @@
     background-color: $primary-color;
   }
 }
-
-.folder-card {
-  background-color: #dfdfdf;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: $dark-color;
-  h6 {
-    text-overflow: ellipsis;
-    display: block;
-    white-space: nowrap;
-    width: 200px;
-    overflow: hidden;
-  }
-}

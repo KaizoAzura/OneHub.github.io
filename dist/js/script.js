@@ -2,16 +2,21 @@ const sidebarToggler = document.getElementById("sidebarToggler");
 const sidebar = document.querySelector(".sidebar");
 const content = document.querySelector(".content");
 const removeSidebar = document.getElementById("removeSidebar");
+const devtoolToggle = document.getElementById("devtoolToggle");
+const sidebarMenu = document.querySelector(".sidebar-menu");
+const sidebarMenuClose = document.querySelector(".sidebar-menu-close");
+const mainContent = document.querySelector(".main-content");
 
 // Inisialisasi tooltip
 const tooltipTriggerList = document.querySelectorAll(
   '[data-bs-toggle="tooltip"]'
 );
 const tooltipList = [...tooltipTriggerList].map(
-  (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+  (tooltipTriggerEl) =>
+    new bootstrap.Tooltip(tooltipTriggerEl, { trigger: "hover" }) // Tooltip hanya muncul saat hover
 );
 
-// Fungsi untuk mengaktifkan/menonaktifkan tooltip
+// Fungsi untuk mengaktifkan/menonaktifkan tooltip berdasarkan sidebar
 function toggleTooltips() {
   if (sidebar.classList.contains("expand")) {
     tooltipList.forEach((tooltip) => tooltip.disable()); // Nonaktifkan tooltip
@@ -29,16 +34,54 @@ sidebarToggler.addEventListener("click", function () {
 
 // Event listener untuk tombol remove sidebar
 removeSidebar.addEventListener("click", function () {
-  sidebar.classList.remove("expand");
-  content.classList.remove("shrink");
-  toggleTooltips(); // Cek kondisi tooltip
+  if (isSmallScreen()) {
+    sidebar.classList.remove("expand");
+    content.classList.remove("shrink");
+    toggleTooltips(); // Cek kondisi tooltip
+  }
+});
+
+// Fungsi untuk memeriksa ukuran layar
+function isSmallScreen() {
+  return window.matchMedia("(max-width: 992px)").matches;
+}
+
+// Event listener untuk toggle devtool
+devtoolToggle.addEventListener("click", function () {
+  sidebarMenu.classList.toggle("expand");
+  mainContent.classList.toggle("more-shrink");
+
+  // Jika layar kecil, tutup sidebar utama
+  if (isSmallScreen()) {
+    sidebar.classList.remove("expand");
+  }
+});
+
+// Event listener untuk close sidebar menu
+sidebarMenuClose.addEventListener("click", function () {
+  sidebarMenu.classList.remove("expand");
+  mainContent.classList.remove("more-shrink");
+
+  // Jika layar kecil, toggle sidebar utama
+  if (isSmallScreen()) {
+    sidebar.classList.toggle("expand");
+  }
+});
+
+// Event listener pada elemen content untuk menonaktifkan tooltip
+content.addEventListener("click", function () {
+  tooltipList.forEach((tooltip) => tooltip.disable());
+});
+
+// Event listener pada elemen content untuk mengaktifkan kembali tooltip setelah klik
+content.addEventListener("mouseleave", function () {
+  tooltipList.forEach((tooltip) => tooltip.enable());
 });
 
 // Jalankan toggleTooltips() saat halaman dimuat untuk kondisi awal
 toggleTooltips();
 
 // call document
-
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", function (event) {
     event.preventDefault(); // Mencegah navigasi default
